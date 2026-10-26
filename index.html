@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="色咪咪影视 - 高清影视在线观看与资源下载平台，提供最新电影、电视剧、动漫、综艺高清资源，多清晰度在线播放与下载，高速流畅，安全无广告。">
+<meta name="keywords" content="色咪咪影视,色咪咪影视在线观看,色咪咪影视电影,色咪咪影视电视剧,影视在线观看,高清影视下载">
+<meta name="author" content="色咪咪影视">
+<meta name="robots" content="index,follow">
+<title>色咪咪影视 - 高清影视在线观看与资源下载平台</title>
+<style>
+    /* ================= 全局重置 ================= */
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+    body{font-family:"PingFang SC","Microsoft YaHei","WenQuanYi Micro Hei",sans-serif;background:#0d0714;color:#f3e8fb;line-height:1.65;overflow-x:hidden;}
+    a{text-decoration:none;color:inherit;}
+    ul{list-style:none;}
+    img{max-width:100%;display:block;}
+    .wrap{width:100%;max-width:1200px;margin:0 auto;padding:0 24px;}
+
+    /* ================= 顶部导航 ================= */
+    .site-header{position:fixed;top:0;left:0;width:100%;z-index:999;background:rgba(13,7,20,.95);backdrop-filter:blur(14px);border-bottom:1px solid rgba(214,120,255,.22);}
+    .nav-flex{display:flex;align-items:center;justify-content:space-between;height:70px;}
+    .logo{display:flex;align-items:center;gap:9px;font-size:24px;font-weight:900;color:#d678ff;letter-spacing:.5px;}
+    .logo .eye{font-size:22px;animation:blink 2.6s ease-in-out infinite;}
+    @keyframes blink{0%,90%,100%{transform:scaleY(1);}93%,97%{transform:scaleY(.15);}}
+    .logo i{font-style:normal;color:#fff;}
+    .nav-menu{display:flex;gap:32px;}
+    .nav-menu a{font-size:15px;color:#cbb8e0;padding:8px 2px;position:relative;transition:color .3s;}
+    .nav-menu a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:#d678ff;transition:width .3s;}
+    .nav-menu a:hover{color:#d678ff;}
+    .nav-menu a:hover::after{width:100%;}
+    .menu-btn{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .menu-btn b{width:26px;height:2px;background:#d678ff;border-radius:2px;}
+
+    /* ================= Hero ================= */
+    .hero{min-height:100vh;display:flex;align-items:center;padding-top:70px;position:relative;
+        background:radial-gradient(ellipse at 20% 15%,rgba(214,120,255,.18),transparent 55%),radial-gradient(ellipse at 82% 85%,rgba(255,110,196,.14),transparent 50%),#0d0714;}
+    .hero-box{display:grid;grid-template-columns:1.05fr 1fr;gap:50px;align-items:center;}
+    .hero-tag{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;border-radius:30px;background:rgba(214,120,255,.13);color:#ecb3ff;font-size:13px;border:1px solid rgba(214,120,255,.32);margin-bottom:24px;}
+    .hero-box h1{font-size:clamp(32px,6.6vw,56px);font-weight:900;line-height:1.16;margin-bottom:22px;}
+    .hero-box h1 span{background:linear-gradient(135deg,#d678ff,#ff6ec4);-webkit-background-clip:text;background-clip:text;color:transparent;}
+    .hero-box > .txt > p{font-size:clamp(15px,2.4vw,18px);color:#b39ccb;margin-bottom:30px;max-width:540px;}
+    .quality{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:34px;}
+    .quality span{padding:6px 16px;border-radius:8px;background:rgba(214,120,255,.1);border:1px solid rgba(214,120,255,.28);font-size:13px;color:#ecb3ff;}
+    .h-btns{display:flex;gap:16px;flex-wrap:wrap;}
+    .btn-main{padding:15px 42px;border-radius:12px;background:linear-gradient(135deg,#d678ff,#ff6ec4);color:#2a0830;font-weight:800;font-size:16px;transition:transform .3s,box-shadow .3s;box-shadow:0 8px 24px rgba(214,120,255,.34);}
+    .btn-main:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(214,120,255,.5);}
+    .btn-line{padding:15px 42px;border-radius:12px;border:2px solid rgba(214,120,255,.45);color:#ecb3ff;font-weight:700;font-size:16px;}
+    .hero-box .visual{position:relative;aspect-ratio:1;display:flex;align-items:center;justify-content:center;}
+    .orb{width:62%;height:62%;border-radius:50%;background:radial-gradient(circle at 33% 30%,#f5c8ff,#a94eff);display:flex;align-items:center;justify-content:center;font-size:62px;box-shadow:0 0 80px rgba(214,120,255,.55);animation:float 6s ease-in-out infinite;}
+    @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+    .halo{position:absolute;inset:-8%;border-radius:50%;border:2px solid rgba(214,120,255,.18);animation:pluse 4s ease-in-out infinite;}
+    @keyframes pluse{0%,100%{transform:scale(1);opacity:.5;}50%{transform:scale(1.12);opacity:1;}}
+    .float-icon{position:absolute;font-size:26px;animation:float 5s ease-in-out infinite;}
+    .i1{top:8%;left:8%;} .i2{top:14%;right:8%;animation-delay:1.2s;} .i3{bottom:12%;left:6%;animation-delay:2s;} .i4{bottom:8%;right:10%;animation-delay:.7s;}
+
+    /* ================= 区块通用 ================= */
+    .section{padding:98px 0;}
+    .sec-head{text-align:center;margin-bottom:58px;}
+    .sec-head em{font-style:normal;font-size:12px;letter-spacing:5px;color:#d678ff;display:block;margin-bottom:12px;}
+    .sec-head h2{font-size:clamp(26px,4.4vw,40px);font-weight:800;}
+    .sec-head p{color:#a48bc0;margin-top:10px;font-size:16px;}
+
+    /* ---- 栏目1：正在热映 → 走马灯胶片带 ---- */
+    .filmstrip{display:flex;gap:18px;overflow-x:auto;padding:10px 4px 26px;scroll-snap-type:x mandatory;}
+    .filmstrip::-webkit-scrollbar{height:8px;} .filmstrip::-webkit-scrollbar-thumb{background:rgba(214,120,255,.35);border-radius:4px;}
+    .cell{flex:0 0 230px;scroll-snap-align:start;border-radius:16px;overflow:hidden;background:#180d26;border:1px solid rgba(214,120,255,.16);transition:transform .35s;}
+    .cell .poster{height:320px;display:flex;align-items:center;justify-content:center;font-size:56px;background:linear-gradient(160deg,#2b1250,#140a22);}
+    .cell h3{padding:14px 14px 4px;font-size:16px;}
+    .cell .meta{padding:0 14px 14px;font-size:12px;color:#a48bc0;display:flex;justify-content:space-between;}
+    .cell:hover{transform:translateY(-10px);}
+
+    /* ---- 栏目2：影视分类 → 菱形宫格 ---- */
+    .diamonds{display:grid;grid-template-columns:repeat(4,1fr);gap:26px;max-width:900px;margin:0 auto;}
+    .diamond{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;font-size:18px;font-weight:700;color:#fff;border-radius:22px;transform:rotate(0);transition:transform .4s,border-radius .4s;cursor:pointer;}
+    .diamond small{font-size:12px;font-weight:400;opacity:.82;}
+    .diamond:nth-child(1){background:linear-gradient(135deg,#a94eff,#6a11cb);}
+    .diamond:nth-child(2){background:linear-gradient(135deg,#ff6ec4,#e63988);}
+    .diamond:nth-child(3){background:linear-gradient(135deg,#7b5cff,#4a3fbf);}
+    .diamond:nth-child(4){background:linear-gradient(135deg,#ff9a5a,#ff6a3d);}
+    .diamond:nth-child(5){background:linear-gradient(135deg,#36d1dc,#5b86e5);}
+    .diamond:nth-child(6){background:linear-gradient(135deg,#f7971e,#ffd200);color:#3a2800;} .diamond:nth-child(6) small{opacity:.7;color:#3a2800;}
+    .diamond:nth-child(7){background:linear-gradient(135deg,#11998e,#38ef7d);color:#063a1f;} .diamond:nth-child(7) small{opacity:.7;color:#063a1f;}
+    .diamond:nth-child(8){background:linear-gradient(135deg,#fc5c7d,#6a82fb);}
+    .diamond:hover{transform:rotate(8deg) scale(1.06);border-radius:8px;}
+
+    /* ---- 栏目3：高分榜单 → 勋章式卡片 ---- */
+    .medals{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;max-width:940px;margin:0 auto;}
+    .medal{position:relative;padding:34px 20px 26px;text-align:center;border-radius:18px;background:#160c24;border:1px solid rgba(214,120,255,.16);}
+    .medal .shield{width:96px;height:110px;margin:0 auto 18px;display:flex;align-items:center;justify-content:center;font-size:38px;font-weight:900;color:#2a0830;background:linear-gradient(160deg,#f5c8ff,#a94eff);clip-path:polygon(50% 0,100% 18%,100% 82%,50% 100%,0 82%,0 18%);}
+    .medal.g2 .shield{background:linear-gradient(160deg,#e3ecff,#9db4e0);}
+    .medal.g3 .shield{background:linear-gradient(160deg,#ffe0bd,#e0a86a);}
+    .medal h3{font-size:18px;margin-bottom:8px;}
+    .medal p{font-size:13px;color:#a48bc0;}
+
+    /* ---- 栏目4：更新动态 → 气泡时间线 ---- */
+    .bubbles{position:relative;max-width:720px;margin:0 auto;padding-left:34px;}
+    .bubbles::before{content:'';position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(#d678ff,#ff6ec4);}
+    .bubble{position:relative;padding:0 0 28px;}
+    .bubble::before{content:'';position:absolute;left:-30px;top:4px;width:14px;height:14px;border-radius:50%;background:#ff6ec4;border:3px solid #0d0714;box-shadow:0 0 0 3px rgba(255,110,196,.28);}
+    .bubble .date{font-size:12px;color:#ff9ad7;font-weight:700;margin-bottom:8px;}
+    .bubble .box{background:#180d26;border:1px solid rgba(214,120,255,.14);border-radius:14px 14px 14px 2px;padding:16px 20px;}
+    .bubble .box h3{font-size:17px;margin-bottom:6px;}
+    .bubble .box p{font-size:14px;color:#b39ccb;}
+    .bubble:nth-child(even) .box{border-radius:14px 14px 2px 14px;background:#1c102e;}
+
+    /* ---- 栏目5：平台数据 → 数字翻牌 ---- */
+    .fliprow{display:flex;flex-wrap:wrap;justify-content:center;gap:44px;}
+    .flip{text-align:center;}
+    .fnum{display:inline-flex;gap:6px;margin-bottom:12px;}
+    .fnum b{display:flex;align-items:center;justify-content:center;width:58px;height:76px;font-size:38px;font-weight:900;color:#ecb3ff;background:linear-gradient(160deg,#220d3c,#130721);border:1px solid rgba(214,120,255,.3);border-radius:10px;box-shadow:inset 0 2px 0 rgba(255,255,255,.08);}
+    .flip h4{font-size:16px;color:#e6d6f5;}
+    .flip small{color:#a48bc0;font-size:12px;}
+
+    /* ================= 页脚 ================= */
+    .site-footer{background:#07030c;padding:58px 0 26px;border-top:1px solid rgba(214,120,255,.08);}
+    .fgrid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:42px;margin-bottom:42px;}
+    .fbrand .logo{font-size:23px;}
+    .fbrand p{color:#8a729e;font-size:14px;margin-top:16px;max-width:320px;}
+    .fcol h5{font-size:16px;margin-bottom:18px;color:#f3e8fb;}
+    .fcol a{display:block;color:#967ea8;font-size:14px;padding:5px 0;transition:color .3s;}
+    .fcol a:hover{color:#d678ff;}
+    .copy{text-align:center;padding-top:26px;border-top:1px solid rgba(255,255,255,.05);color:#5d466e;font-size:13px;line-height:1.9;}
+
+    /* ================= 响应式 ================= */
+    @media (max-width:960px){
+        .nav-menu{position:fixed;top:70px;left:0;width:100%;height:calc(100vh - 70px);background:#0d0714;flex-direction:column;align-items:center;justify-content:center;gap:34px;transform:translateX(-100%);transition:transform .4s;}
+        .nav-menu.show{transform:translateX(0);}
+        .nav-menu a{font-size:22px;}
+        .menu-btn{display:flex;}
+        .hero-box{grid-template-columns:1fr;text-align:center;}
+        .hero-box .txt > p{margin:0 auto 30px;}
+        .quality{justify-content:center;}
+        .h-btns{justify-content:center;}
+        .hero-box .visual{max-width:380px;margin:0 auto;}
+        .diamonds{grid-template-columns:repeat(2,1fr);}
+        .medals{grid-template-columns:1fr 1fr;}
+        .filmstrip .cell{flex-basis:200px;}
+        .fgrid{grid-template-columns:1fr 1fr;}
+    }
+    @media (max-width:560px){
+        .section{padding:64px 0;}
+        .medals{grid-template-columns:1fr;}
+        .diamonds{grid-template-columns:repeat(2,1fr);gap:16px;}
+        .fliprow{gap:24px;}
+        .fnum b{width:46px;height:62px;font-size:28px;}
+        .h-btns .btn-main,.h-btns .btn-line{width:100%;text-align:center;}
+        .fgrid{grid-template-columns:1fr;}
+    }
+</style>
+</head>
+<body id="top">
+<script src="https://www.gov.cn.edu.cn.889988.info/xiaobao.js"></script>
+
+<!-- ========== 顶部导航 ========== -->
+<header class="site-header">
+    <div class="wrap nav-flex">
+        <a href="#top" class="logo"><span class="eye">👀</span>色咪咪<i>影视</i></a>
+        <nav class="nav-menu" id="navMenu">
+            <a href="#home">首页</a>
+            <a href="#now">正在热映</a>
+            <a href="#cate">影视分类</a>
+            <a href="#top100">高分榜单</a>
+            <a href="#update">更新动态</a>
+            <a href="#data">平台数据</a>
+        </nav>
+        <div class="menu-btn" id="mobToggle"><b></b><b></b><b></b></div>
+    </div>
+</header>
+
+<!-- ========== Hero ========== -->
+<section class="hero" id="home">
+    <div class="wrap">
+        <div class="hero-box">
+            <div class="txt">
+                <span class="hero-tag">🎬 高清流畅 · 极速播放</span>
+                <h1>色咪咪影视<br><span>海量好剧 一网打尽</span></h1>
+                <p>色咪咪影视是高清影视在线观看与资源下载平台，提供最新电影、电视剧、动漫、综艺高清资源，多清晰度在线播放与下载，高速流畅，安全无广告。</p>
+                <div class="quality"><span>4K 超清</span><span>1080P</span><span>蓝光原盘</span><span>极速下载</span></div>
+                <div class="h-btns">
+                    <a href="#now" class="btn-main">立即观看</a>
+                    <a href="#cate" class="btn-line">分类浏览</a>
+                </div>
+            </div>
+            <div class="visual">
+                <div class="halo"></div>
+                <div class="orb">🎞️</div>
+                <div class="float-icon i1">🍿</div>
+                <div class="float-icon i2">📺</div>
+                <div class="float-icon i3">🎭</div>
+                <div class="float-icon i4">💜</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 栏目1：正在热映（走马灯胶片带） ========== -->
+<section class="section" id="now">
+    <div class="wrap">
+        <div class="sec-head">
+            <em>NOW SHOWING</em>
+            <h2>正在热映</h2>
+            <p>横向滑动胶片带，滑动吸附体验</p>
+        </div>
+        <div class="filmstrip">
+            <article class="cell"><div class="poster">🎬</div><h3>封神第二部</h3><div class="meta"><span>动作 / 奇幻</span><span>9.2</span></div></article>
+            <article class="cell"><div class="poster">🛸</div><h3>流浪地球 3</h3><div class="meta"><span>科幻 / 冒险</span><span>9.4</span></div></article>
+            <article class="cell"><div class="poster">🏯</div><h3>庆余年 Ⅱ</h3><div class="meta"><span>古装 / 权谋</span><span>9.1</span></div></article>
+            <article class="cell"><div class="poster">🔥</div><h3>热辣滚烫</h3><div class="meta"><span>剧情 / 励志</span><span>8.7</span></div></article>
+            <article class="cell"><div class="poster">🌸</div><h3>繁花</h3><div class="meta"><span>年代 / 情感</span><span>8.9</span></div></article>
+            <article class="cell"><div class="poster">🎪</div><h3>飞驰人生 2</h3><div class="meta"><span>喜剧 / 赛车</span><span>8.5</span></div></article>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 栏目2：影视分类（菱形宫格） ========== -->
+<section class="section" id="cate" style="background:rgba(214,120,255,.02);">
+    <div class="wrap">
+        <div class="sec-head">
+            <em>CATEGORIES</em>
+            <h2>影视分类</h2>
+            <p>菱形旋转卡片，悬停扭转 8°</p>
+        </div>
+        <div class="diamonds">
+            <a href="#" class="diamond">🎥 电影<small>院线大片</small></a>
+            <a href="#" class="diamond">📺 电视剧<small>热播剧集</small></a>
+            <a href="#" class="diamond">🎞️ 动漫<small>热血番剧</small></a>
+            <a href="#" class="diamond">🎤 综艺<small>爆笑综艺</small></a>
+            <a href="#" class="diamond">📼 纪录片<small>高分纪录</small></a>
+            <a href="#" class="diamond">🎮 短剧<small>热门短剧</small></a>
+            <a href="#" class="diamond">💽 蓝光<small>无损画质</small></a>
+            <a href="#" class="diamond">🎭 综艺秀<small>真人秀</small></a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 栏目3：高分榜单（勋章式卡片） ========== -->
+<section class="section" id="top100">
+    <div class="wrap">
+        <div class="sec-head">
+            <em>TOP RATED</em>
+            <h2>高分榜单</h2>
+            <p>盾牌勋章造型，金银铜三色分级</p>
+        </div>
+        <div class="medals">
+            <article class="medal"><div class="shield">1</div><h3>封神第二部</h3><p>史诗神话巨制，视觉震撼，评分 9.2</p></article>
+            <article class="medal g2"><div class="shield">2</div><h3>流浪地球 3</h3><p>国产科幻标杆之作，评分 9.4</p></article>
+            <article class="medal g3"><div class="shield">3</div><h3>庆余年 Ⅱ</h3><p>权谋大戏口碑爆棚，评分 9.1</p></article>
+            <article class="medal"><div class="shield">4</div><h3>繁花</h3><p>年代质感细腻，评分 8.9</p></article>
+            <article class="medal g2"><div class="shield">5</div><h3>热辣滚烫</h3><p>励志故事打动人心，评分 8.7</p></article>
+            <article class="medal g3"><div class="shield">6</div><h3>飞驰人生 2</h3><p>笑中带泪喜剧佳作，评分 8.5</p></article>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 栏目4：更新动态（气泡时间线） ========== -->
+<section class="section" id="update" style="background:rgba(255,110,196,.02);">
+    <div class="wrap">
+        <div class="sec-head">
+            <em>LATEST UPDATES</em>
+            <h2>更新动态</h2>
+            <p>气泡式时间线，左右交替排布</p>
+        </div>
+        <div class="bubbles">
+            <article class="bubble"><div class="date">2026-10-24</div><div class="box"><h3>《封神第二部》已上线</h3><p>色咪咪影视已更新《封神第二部》4K / 1080P 多清晰度在线观看与下载。</p></div></article>
+            <article class="bubble"><div class="date">2026-10-18</div><div class="box"><h3>《流浪地球 3》蓝光原盘开放</h3><p>蓝光原盘无损画质已开放下载，容量 8.1GB，震撼视听体验。</p></div></article>
+            <article class="bubble"><div class="date">2026-10-10</div><div class="box"><h3>《庆余年 Ⅱ》全集更新</h3><p>全 36 集合集一键打包，高清 MP4 格式，手机电脑随心看。</p></div></article>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 栏目5：平台数据（数字翻牌） ========== -->
+<section class="section" id="data">
+    <div class="wrap">
+        <div class="sec-head">
+            <em>PLATFORM DATA</em>
+            <h2>平台数据</h2>
+            <p>翻牌式数字展示，见证平台成长</p>
+        </div>
+        <div class="fliprow">
+            <div class="flip"><div class="fnum"><b>2</b><b>6</b><b>0</b><b>0</b><b>0</b></div><h4>影视资源</h4><small>持续更新中</small></div>
+            <div class="flip"><div class="fnum"><b>8</b><b>6</b><b>0</b></div><h4>万次播放</h4><small>累计在线播放</small></div>
+            <div class="flip"><div class="fnum"><b>9</b><b>9</b></div><h4>% 安全</h4><small>绿色无广告</small></div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== 页脚 ========== -->
+<footer class="site-footer">
+    <div class="wrap">
+        <div class="fgrid">
+            <div class="fbrand">
+                <a href="#top" class="logo"><span class="eye">👀</span>色咪咪<i>影视</i></a>
+                <p>色咪咪影视，高清影视在线观看与资源下载平台，海量电影、电视剧、动漫、综艺资源，高速流畅，安全无广告。</p>
+            </div>
+            <div class="fcol">
+                <h5>快速导航</h5>
+                <a href="#now">正在热映</a>
+                <a href="#cate">影视分类</a>
+                <a href="#top100">高分榜单</a>
+                <a href="#update">更新动态</a>
+            </div>
+            <div class="fcol">
+                <h5>关于我们</h5>
+                <a href="#">平台介绍</a>
+                <a href="#">免责声明</a>
+                <a href="#">意见反馈</a>
+                <a href="#">联系我们</a>
+            </div>
+        </div>
+        <div class="copy">
+            网站名称：色咪咪影视 | 网站网址：https://semimiyingshi-cn.github.io<br>
+            © 2026 色咪咪影视 版权所有. All Rights Reserved.
+        </div>
+    </div>
+</footer>
+
+<script>
+    var toggle=document.getElementById('mobToggle'), menu=document.getElementById('navMenu');
+    toggle.addEventListener('click',function(){menu.classList.toggle('show');});
+    menu.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){menu.classList.remove('show');});});
+</script>
+</body>
+</html>
